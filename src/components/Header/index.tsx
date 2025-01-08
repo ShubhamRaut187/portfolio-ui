@@ -50,10 +50,13 @@ const StyledContainer = styled(Container)`
 
 
 const StyledAppBar = styled(AppBar)`
-  position: sticky;
+  position: sticky !important;
+  z-index: 10 !important;
   top: 20px;
   width: 85% !important;
-  background-color: #152f44 !important;
+  /* background-color: #152f44 !important; */
+  background-color: rgba(21, 47, 68, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
   margin: 20px auto;
   border-radius: 8px;
   display: flex !important;
@@ -99,7 +102,7 @@ const StyledButtonBox = styled(Box)`
   @media (max-width: 1023px) {
     display: none;
   }
-  
+
 `;
 
 const StyledButton = styled(Button)`
@@ -109,8 +112,9 @@ const StyledButton = styled(Button)`
 
 const StyledDownloadButton = styled(Button)`
     text-transform: none !important;
-    border-color: #3C84C7 !important;
-    color: #3C84C7 !important;
+    border-color: #E51C4A !important;
+    /* color: #3C84C7 !important; */
+    color: #E51C4A !important;
     font-family: "Kumbh Sans", serif !important;
 `;
 
