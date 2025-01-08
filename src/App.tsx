@@ -4,6 +4,8 @@ import Header from './components/Header'
 import AnimatedCursor from "react-animated-cursor";
 import Home from './pages/Home';
 import About from './pages/About';
+import Skills from './pages/Skills';
+
 const App: React.FC = () => {
   return (
       <div>
@@ -22,6 +24,7 @@ const App: React.FC = () => {
       <Header/>
       <Home/>
       <About/>
+      <Skills />
     </div>
   )
 }
