@@ -7,9 +7,7 @@ import { useTypewriter } from 'react-simple-typewriter';
 
 const StyledPageWrapper = styled.div`
     width: 85%;
-    margin: 80px auto 40px auto;
-    height: 500px;
-    /* border: 1px solid #808080; */
+    margin: 80px auto 150px auto;
     @media screen and (min-width:768px) and (max-width:1024px){
        width: 90%;
     }
