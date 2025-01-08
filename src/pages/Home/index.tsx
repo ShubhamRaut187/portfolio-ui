@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-import { Typography,IconButton } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useTypewriter } from 'react-simple-typewriter';
 import Avatar from './avatar.jpeg'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -122,7 +122,7 @@ const Home: React.FC = () => {
            <Typography variant='h4' component={'div'} sx={{ color: '#808080', fontWeight: 500, marginBottom: '20px'}}>
                 Hey there, 👋
            </Typography>
-           <Typography variant='h2' component={'div'} sx={{ color: '#3C84C7', fontWeight: 700}} className='profile-title-home'>
+           <Typography variant='h2' component={'div'} sx={{ color: '#E51C4A', fontWeight: 700}} className='profile-title-home'>
                 <span style={{ color: '#FFFFFF'}}>I'm &nbsp;</span>Shubham Raut
            </Typography>
            <Typography variant='h2' component={'div'} sx={{ color: '#FFFFFF', fontWeight: 700}} className='profile-roles-home'>
