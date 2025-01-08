@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-import { Typography } from '@mui/material';
+import { Typography,IconButton } from '@mui/material';
 import { useTypewriter } from 'react-simple-typewriter';
 import Avatar from './avatar.jpeg'
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const StyledPageWrapper = styled.div`
     display: flex;
@@ -74,11 +76,20 @@ const StyledHeroAvatarWrapper = styled.div`
 
 `;
 
+const StyledSocialMediaIconsWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+`;
+
 const Home: React.FC = () => {
     const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState<boolean>(false); // Track hover state
     const [typeEffect] = useTypewriter({
-        words:['Software Engineer.','MERN Devloper.','Full Stack Devloper.','React Devloper.','Backend Devloper.','node.js Devloper.'],
+        words:['Software Engineer.','MERN Developer.','Full Stack Developer.','React Developer.','Backend Developer.','node.js Developer.'],
         loop: true,
         typeSpeed: 200,
         deleteSpeed: 150,
@@ -117,9 +128,13 @@ const Home: React.FC = () => {
            <Typography variant='h2' component={'div'} sx={{ color: '#FFFFFF', fontWeight: 700}} className='profile-roles-home'>
                 a {typeEffect}
            </Typography>
-           <Typography variant='h5' component='div' sx={{ fontWeight: 500, color: '#808080', marginTop: '20px'}}>
+           <Typography variant='h5' component='div' sx={{ fontWeight: 500, color: '#808080', marginTop: '0px'}}>
                 currently focused on building user experiences that drive growth.
            </Typography>
+           <StyledSocialMediaIconsWrapper>
+                <LinkedInIcon sx={{ color: '#FFFFFF', width: '40px', height: '40px'}}/>
+                <GitHubIcon sx={{ color: '#FFFFFF', width: '35px', height: '35px'}}/>
+           </StyledSocialMediaIconsWrapper>
         </StyledHeroDescriptionWrapper>
         <StyledHeroAvatarWrapper 
           onMouseMove={handleMouseMove}
