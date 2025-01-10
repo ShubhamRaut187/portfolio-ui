@@ -1,10 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import styled from 'styled-components';
 import { Typography } from '@mui/material';
 import { useTypewriter } from 'react-simple-typewriter';
 import Avatar from './avatar.jpeg'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const StyledPageWrapper = styled.div`
     display: flex;
@@ -86,6 +89,7 @@ const StyledSocialMediaIconsWrapper = styled.div`
 `;
 
 const Home: React.FC = () => {
+    const ref = useRef<HTMLDivElement | null>(null);
     const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState<boolean>(false); // Track hover state
     const [typeEffect] = useTypewriter({
@@ -116,8 +120,28 @@ const Home: React.FC = () => {
         setPosition({ x: 0, y: 0 });
     };
 
+    useEffect(() => {
+        if (ref.current) {
+          gsap.fromTo(
+            ref.current,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              scrollTrigger: {
+                trigger: ref.current,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
+      }, []);
+
     return (
-    <StyledPageWrapper id="Home">
+    <StyledPageWrapper id="Home" ref={ref}>
         <StyledHeroDescriptionWrapper>
            <Typography variant='h4' component={'div'} sx={{ color: '#808080', fontWeight: 500, marginBottom: '20px'}}>
                 Hey there, 👋

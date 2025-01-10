@@ -5,6 +5,7 @@ import AnimatedCursor from "react-animated-cursor";
 import Home from './pages/Home';
 import About from './pages/About';
 import Skills from './pages/Skills';
+import Resume from './pages/Resume';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
       <Home/>
       <About/>
       <Skills />
+      <Resume />
     </div>
   )
 }

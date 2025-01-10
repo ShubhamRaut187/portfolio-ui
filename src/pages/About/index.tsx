@@ -1,9 +1,12 @@
-import React from 'react'
+import React,{useEffect, useRef} from 'react'
 import styled from 'styled-components';
 import { Typography, Button } from '@mui/material'; 
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import ImageContainer from '../../components/ImageContainer';
 import { useTypewriter } from 'react-simple-typewriter';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const StyledPageWrapper = styled.div`
     width: 85%;
@@ -27,7 +30,6 @@ const StyledInformationWrapper = styled.div`
     background: linear-gradient(to right, #d9d9d91f, #7373731f) !important;
     margin: 20px auto;
     @media screen and (min-width:768px) and (max-width:1024px){
-       /* flex-direction: column; */
        height: 400px;
     }
 
@@ -40,14 +42,7 @@ const StyledInformationWrapper = styled.div`
 const StyledImagesContainer = styled.div`
     width: 40%;
     height: 300px;
-    /* border: 2px solid red; */
     border-radius: 20px;
-
-    /* @media screen and (min-width:768px) and (max-width:1024px){
-       border: 1px solid red;
-
-    } */
-
     @media screen and (min-width: 320px) and (max-width: 767px) {
         width: 90%;
         height: 30%;
@@ -57,10 +52,8 @@ const StyledImagesContainer = styled.div`
 const StyledInfoContainer = styled.div`
     width: 50%;
     height: 300px;
-    /* border: 2px solid red; */
     border-radius: 20px;
     @media screen and (min-width:768px) and (max-width:1024px){
-       /* border: 1px solid red; */
        overflow-y: auto;
        scrollbar-width: none;
     }
@@ -76,7 +69,6 @@ const StyledButton = styled(Button)`
     text-transform: none !important;
     border-color: #E51C4A !important;
     background-color: #E51C4A !important;
-    /* color: #3C84C7 !important; */
     color: #FFFFFF;
     font-family: "Kumbh Sans", serif !important;
     margin-top: 10px !important;
@@ -84,6 +76,7 @@ const StyledButton = styled(Button)`
 `;
 
 const About: React.FC = () => {
+    const ref = useRef<HTMLDivElement | null>(null);
     const [typeEffect] = useTypewriter({
         words:['Engineer...', 'Explorer...', 'Traveller...', 'Foodie...'],
         loop: true,
@@ -91,8 +84,30 @@ const About: React.FC = () => {
         deleteSpeed: 100,
 
     });
+
+    useEffect(() => {
+        if (ref.current) {
+          gsap.fromTo(
+            ref.current,
+            { opacity: 0, x: -100 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 1,
+              scrollTrigger: {
+                trigger: ref.current,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: true,
+                toggleActions: "play reverse play reverse",
+              },
+            }
+          );
+        }
+      }, []);
+
   return (
-    <StyledPageWrapper>
+    <StyledPageWrapper ref={ref}>
         <Typography variant='h3' component='div' sx={{ color: '#808080', fontWeight: 600}}>
             More about me 
         </Typography>
@@ -103,7 +118,7 @@ const About: React.FC = () => {
                   width='100%'
                   height='100%'
                   imageName='avatar'
-                  borderRadius={'20px'}
+                  borderradius={'20px'}
                 />
             </StyledImagesContainer>
             <StyledInfoContainer>
