@@ -112,7 +112,6 @@ const StyledButton = styled(Button)`
 const StyledDownloadButton = styled(Button)`
     text-transform: none !important;
     border-color: #E51C4A !important;
-    /* color: #3C84C7 !important; */
     color: #E51C4A !important;
     font-family: "Kumbh Sans", serif !important;
 `;

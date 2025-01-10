@@ -1,8 +1,9 @@
 import React from 'react'
 import PageWrapper from '../../components/PageWrapper';
-import { Typography } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import styled from 'styled-components';
 import Timeline from '../../components/TimeLine';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { EDUCATION_INFORMATION, WORK_INFORMATION} from './constants';
 
 const StyledResumeContentWrapper = styled.div`
@@ -40,11 +41,22 @@ const StyledWorkContentWrapper = styled.div`
     }
 `;
 
+const StyledDownloadButton = styled(Button)`
+    text-transform: none !important;
+    border-color: #E51C4A !important;
+    background-color: #E51C4A !important;
+    color: #FFFFFF !important;
+    font-family: "Kumbh Sans", serif !important;
+    margin: 30px auto auto 25px !important;
+    box-shadow: none !important;
+`;
+
+
 const Resume: React.FC = () => {
   return (
     <PageWrapper>
         <Typography variant='h3' component='div' sx={{ color: '#808080', fontWeight: 600}}>
-            Resume
+            Career & Learning
         </Typography>
         <StyledResumeContentWrapper>
             <StyledWorkContentWrapper>
@@ -52,6 +64,10 @@ const Resume: React.FC = () => {
                     Work Experience
                 </Typography>
                 <Timeline data={WORK_INFORMATION}/>
+                <StyledDownloadButton variant="contained" >
+                    <FileDownloadOutlinedIcon sx={{ marginRight: '10px'}}/>
+                    Download Resume
+                </StyledDownloadButton>
             </StyledWorkContentWrapper>
             <StyledWorkContentWrapper>
                 <Typography variant='h4' sx={{ color: '#E51C4A', fontWeight: 600}}>
