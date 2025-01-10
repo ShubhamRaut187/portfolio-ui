@@ -4,6 +4,7 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, 
 import styled from 'styled-components';
 import IconComponent from '../IconComponent';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import DrumSound from '../../Audio/drum.mp3';
 
 const pages: String[] = ['Home', 'About', 'Skills', 'Projects', 'Resume', 'Contact'];
 const StyledMenu = styled(Menu)`
@@ -127,6 +128,13 @@ const Header: React.FC = () => {
     setAnchorElNav(null);
   };
 
+  const playSound = () => {
+    const audio = new Audio(DrumSound);
+    audio.play().catch((err) => {
+      console.error("Error playing sound:", err);
+    });
+  };
+
   return (
     <StyledAppBar position="static">
       <StyledContainer maxWidth="xl">
@@ -188,7 +196,9 @@ const Header: React.FC = () => {
             }
           </StyledBox>
           <StyledButtonBox>
-            <StyledDownloadButton variant="outlined" >
+            <StyledDownloadButton variant="outlined" onClick={() => {
+              playSound();
+            }}>
               <FileDownloadOutlinedIcon sx={{ marginRight: '10px'}}/>
               Download Resume
             </StyledDownloadButton>

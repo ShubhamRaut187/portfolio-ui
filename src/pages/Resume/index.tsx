@@ -18,14 +18,13 @@ const StyledResumeContentWrapper = styled.div`
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
         flex-direction: column;
-        border: 1px solid red;
     }
 `;
 
 const StyledWorkContentWrapper = styled.div`
     width: 48%;
     border-radius: 20px;
-    height: 750px;
+    height: 950px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;

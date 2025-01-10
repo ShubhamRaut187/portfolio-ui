@@ -98,9 +98,9 @@ const TimeLine: React.FC<Props> = ({ data }) => {
     return (
     <StyledTimeLine position="right" >
       {
-        data.map((item) => {
+        data.map((item, index) => {
             return(
-                <TimelineItem sx={{ '&:before': { display: 'none' } }}>
+                <TimelineItem sx={{ '&:before': { display: 'none' } }} key={index}>
                     <TimelineSeparator>
                     <StyledTimelineDot />
                     <StyledTimelineConector/>
