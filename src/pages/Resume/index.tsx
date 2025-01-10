@@ -28,6 +28,7 @@ const StyledWorkContentWrapper = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    flex-direction: column;
     @media screen and (min-width:768px) and (max-width:1024px){
         width: 100%;
         height: auto;
@@ -47,9 +48,15 @@ const Resume: React.FC = () => {
         </Typography>
         <StyledResumeContentWrapper>
             <StyledWorkContentWrapper>
+                <Typography variant='h4' sx={{ color: '#E51C4A', fontWeight: 600}}>
+                    Work Experience
+                </Typography>
                 <Timeline data={WORK_INFORMATION}/>
             </StyledWorkContentWrapper>
             <StyledWorkContentWrapper>
+                <Typography variant='h4' sx={{ color: '#E51C4A', fontWeight: 600}}>
+                    Education
+                </Typography>
                 <Timeline data={EDUCATION_INFORMATION}/>
             </StyledWorkContentWrapper>
         </StyledResumeContentWrapper>

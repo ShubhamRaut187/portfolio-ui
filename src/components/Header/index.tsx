@@ -54,7 +54,6 @@ const StyledAppBar = styled(AppBar)`
   z-index: 10 !important;
   top: 20px;
   width: 85% !important;
-  /* background-color: #152f44 !important; */
   background-color: rgba(21, 47, 68, 0.8) !important;
   backdrop-filter: blur(10px) !important;
   margin: 20px auto;
