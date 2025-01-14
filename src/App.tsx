@@ -8,6 +8,7 @@ import Skills from './pages/Skills';
 import Resume from './pages/Resume';
 import Welcome from './Audio/welcome.mp3'
 import Contact from './pages/Contact'; 
+import Gallery from './pages/Gallery';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
@@ -45,6 +46,7 @@ const App: React.FC = () => {
       <About/>
       <Skills />
       <Resume />
+      <Gallery/>
       <Contact/>
       <Footer/>
     </div>
