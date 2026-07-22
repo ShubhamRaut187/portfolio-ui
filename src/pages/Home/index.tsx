@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react'
 import styled from 'styled-components';
 import { Typography } from '@mui/material';
 import { useTypewriter } from 'react-simple-typewriter';
-import Avatar from './avatar.jpeg'
+import Avatar from './Avatar2.png'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import gsap from "gsap";
@@ -84,7 +84,7 @@ const StyledSocialMediaIconsWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 12px;
     cursor: pointer;
 `;
 
@@ -93,7 +93,7 @@ const Home: React.FC = () => {
     const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState<boolean>(false); // Track hover state
     const [typeEffect] = useTypewriter({
-        words:['Software Engineer.','MERN Developer.','Full Stack Developer.','React Developer.','Backend Developer.','node.js Developer.'],
+        words:['software engineer.','MERN developer.','full stack developer.','react developer.','backend developer.','node.js developer.'],
         loop: true,
         typeSpeed: 200,
         deleteSpeed: 150,
@@ -143,16 +143,16 @@ const Home: React.FC = () => {
     return (
     <StyledPageWrapper id="Home" ref={ref}>
         <StyledHeroDescriptionWrapper>
-           <Typography variant='h4' component={'div'} sx={{ color: '#808080', fontWeight: 500, marginBottom: '20px'}}>
-                Hey there, 👋
+           <Typography variant='h4' component={'div'} sx={{ color: '#808080', fontWeight: 500}}>
+                Hello there,
            </Typography>
-           <Typography variant='h2' component={'div'} sx={{ color: '#E51C4A', fontWeight: 700}} className='profile-title-home'>
+           <Typography variant='h3' component={'div'} sx={{ color: '#E51C4A', fontWeight: 700}} className='profile-title-home'>
                 <span style={{ color: '#FFFFFF'}}>I'm &nbsp;</span>Shubham Raut
            </Typography>
-           <Typography variant='h2' component={'div'} sx={{ color: '#FFFFFF', fontWeight: 700}} className='profile-roles-home'>
+           <Typography variant='h3' component={'div'} sx={{ color: '#FFFFFF', fontWeight: 700}} className='profile-roles-home'>
                 a {typeEffect}
            </Typography>
-           <Typography variant='h5' component='div' sx={{ fontWeight: 500, color: '#808080', marginTop: '0px'}}>
+           <Typography variant='h6' component='div' sx={{ fontWeight: 500, color: '#808080'}}>
                 currently focused on building user experiences that drive growth.
            </Typography>
            <StyledSocialMediaIconsWrapper>
