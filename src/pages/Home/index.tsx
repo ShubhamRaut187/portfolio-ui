@@ -1,40 +1,49 @@
-import React, {useState, useRef, useEffect} from 'react'
-import styled from 'styled-components';
-import { Typography } from '@mui/material';
-import { useTypewriter } from 'react-simple-typewriter';
-import Avatar from './Avatar2.png'
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+// #region Imports
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, {useState, useRef, useEffect} from 'react'
+import { useTypewriter } from 'react-simple-typewriter';
+import styled from 'styled-components';
+import { Typography } from '@mui/material';
+
+// MUI icons
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { ArrowRightAlt } from '@mui/icons-material';
+
+import AppButton from '../../components/Button';
+import Avatar from './Avatar2.png'
+// endregion
+
 gsap.registerPlugin(ScrollTrigger);
 
+// #region Styled Components
 const StyledPageWrapper = styled.div`
-    display: flex;
     align-items: center;
-    justify-content: space-between;
+    display: flex;
     height: 600px;
-    width: 85%;
+    justify-content: space-between;
     margin: 40px auto;
+    width: 85%;
 
     @media screen and (min-width:768px) and (max-width:1024px){
-        width: 90%;
         height: 500px;
+        width: 90%;
     }
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
+        height: 500px;
         flex-direction: column;
         width: 90%;
-        height: 500px;
     }
 `;
 
 const StyledHeroDescriptionWrapper = styled.div`
-    display: flex;
-    width: 55%;
     align-items: flex-start;
-    justify-content: flex-start;
+    display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    width: 55%;
 
     @media screen and (min-width:768px) and (max-width:1024px){
         width: 70%;
@@ -79,27 +88,45 @@ const StyledHeroAvatarWrapper = styled.div`
 
 `;
 
-const StyledSocialMediaIconsWrapper = styled.div`
-    display: flex;
+const StyledStatus = styled.div`
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 12px;
-    cursor: pointer;
+    background-color: #192824;
+    border: 1px solid #244E37;
+    border-radius: 9999px;
+    display: flex;
+    height: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 8px 36px;
 `;
 
+const StyledSocialMediaIconsWrapper = styled.div`
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 12px;
+`;
+// endregion
+
+// #region Component
 const Home: React.FC = () => {
     const ref = useRef<HTMLDivElement | null>(null);
+
     const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState<boolean>(false); // Track hover state
+
+    // Typewritter effect
     const [typeEffect] = useTypewriter({
-        words:['software engineer.','MERN developer.','full stack developer.','react developer.','backend developer.','node.js developer.'],
+        words:['software engineer.','back-end enthusiast', 'front-end specialist'],
         loop: true,
         typeSpeed: 200,
         deleteSpeed: 150,
 
     });
 
+    // Track mouse on image
     const handleMouseMove = (e: React.MouseEvent) => {
         const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
         const maxMovement = 45;
@@ -122,60 +149,104 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         if (ref.current) {
-          gsap.fromTo(
-            ref.current,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              scrollTrigger: {
-                trigger: ref.current,
-                start: "top 80%",
-                end: "bottom 20%",
-                toggleActions: "play none none none",
-              },
-            }
-          );
+            gsap.fromTo(
+                ref.current,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: ref.current,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none none",
+                    },
+                }
+            );
         }
       }, []);
 
     return (
-    <StyledPageWrapper id="Home" ref={ref}>
-        <StyledHeroDescriptionWrapper>
-           <Typography variant='h4' component={'div'} sx={{ color: '#808080', fontWeight: 500}}>
+        <StyledPageWrapper id="Home" ref={ref}>
+            <StyledHeroDescriptionWrapper>
+                <StyledStatus>
+                    <Typography
+                        variant='caption'
+                        sx={{ color: '#4ADE80', letterSpacing: 3 }}
+                    >
+                        Available for new oppotunities
+                    </Typography>
+                </StyledStatus>
+            <Typography 
+                variant='h2'
+                component={'div'}
+                sx={{ color: '#FFFFFF', fontWeight: 700, letterSpacing: '-0.01em', lineHeight: '40px' }}
+            >
                 Hello there,
-           </Typography>
-           <Typography variant='h3' component={'div'} sx={{ color: '#E51C4A', fontWeight: 700}} className='profile-title-home'>
+            </Typography>
+            <Typography 
+                variant='h2'
+                component={'div'}
+                sx={{ color: '#4ADE80', fontWeight: 700, letterSpacing: '-0.01em' }}
+                className='profile-title-home'
+            >
                 <span style={{ color: '#FFFFFF'}}>I'm &nbsp;</span>Shubham Raut
-           </Typography>
-           <Typography variant='h3' component={'div'} sx={{ color: '#FFFFFF', fontWeight: 700}} className='profile-roles-home'>
+            </Typography>
+            <Typography
+                variant='h2'
+                component={'div'}
+                sx={{ color: '#7E7F83', fontWeight: 700, letterSpacing: '-0.01em' }}
+                className='profile-roles-home'
+            >
                 a {typeEffect}
-           </Typography>
-           <Typography variant='h6' component='div' sx={{ fontWeight: 500, color: '#808080'}}>
-                currently focused on building user experiences that drive growth.
-           </Typography>
-           <StyledSocialMediaIconsWrapper>
+            </Typography>
+            <Typography 
+                variant='body1'
+                component='div'
+                sx={{ fontWeight: 500, color: '#808080', lineHeight: '24px'}}
+            >
+                Currently focused on building user experience that drive growth. I architect robust systems that merge technical 
+                precisions with intuitive functionality.
+            </Typography>
+            <StyledSocialMediaIconsWrapper>
                 <LinkedInIcon sx={{ color: '#FFFFFF', width: '40px', height: '40px'}}/>
                 <GitHubIcon sx={{ color: '#FFFFFF', width: '35px', height: '35px'}}/>
-           </StyledSocialMediaIconsWrapper>
-        </StyledHeroDescriptionWrapper>
-        <StyledHeroAvatarWrapper 
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter} 
-          onMouseLeave={handleMouseLeave}
-        >
-            <img 
-              src={Avatar} 
-              alt='avatar'
-              style={{
-                transform: isHovered
-                ? `rotate(350deg) translate(${position.x}px, ${position.y}px)`
-                : 'rotate(350deg) translate(0, 0)',
-            }}/>
-        </StyledHeroAvatarWrapper>
-    </StyledPageWrapper>
-  )
+            </StyledSocialMediaIconsWrapper>
+            <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '10px' }}>
+                <AppButton
+                    variant='solid'
+                    sx={{ height: 50 }}
+                >
+                    View Projects
+                    <ArrowRightAlt />
+                </AppButton>
+                <AppButton
+                    variant='outline'
+                    sx={{ height: 50 }}
+                >
+                    Get in touch
+                </AppButton>
+            </div>
+            </StyledHeroDescriptionWrapper>
+            <StyledHeroAvatarWrapper 
+                onMouseMove={handleMouseMove}
+                onMouseEnter={handleMouseEnter} 
+                onMouseLeave={handleMouseLeave}
+            >
+                <img 
+                    src={Avatar} 
+                    alt='avatar'
+                    style={{
+                        transform: isHovered
+                        ? `rotate(350deg) translate(${position.x}px, ${position.y}px)`
+                        : 'rotate(350deg) translate(0, 0)',
+                    }}
+                />
+            </StyledHeroAvatarWrapper>
+        </StyledPageWrapper>
+    )
 }
+// endregion
 
 export default Home;

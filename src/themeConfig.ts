@@ -3,7 +3,7 @@ import { createTheme, ThemeOptions } from "@mui/material/styles";
 const themeOptions: ThemeOptions = createTheme({
     typography: {
       fontFamily: [
-        '"Kumbh Sans"',
+        '"Inter"',
         'serif',
       ].join(','),
     },
