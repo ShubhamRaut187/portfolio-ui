@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { Typography } from '@mui/material';
 
 // MUI icons
+import CircleIcon from '@mui/icons-material/Circle';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { ArrowRightAlt } from '@mui/icons-material';
@@ -121,8 +122,8 @@ const Home: React.FC = () => {
     const [typeEffect] = useTypewriter({
         words:['software engineer.','back-end enthusiast', 'front-end specialist'],
         loop: true,
-        typeSpeed: 200,
-        deleteSpeed: 150,
+        typeSpeed: 100,
+        deleteSpeed: 100,
 
     });
 
@@ -171,11 +172,15 @@ const Home: React.FC = () => {
         <StyledPageWrapper id="Home" ref={ref}>
             <StyledHeroDescriptionWrapper>
                 <StyledStatus>
+                    <CircleIcon 
+                      sx={{ fontSize: '12px', color: '#4ADE80' }}
+                    />
+                    &nbsp;&nbsp;&nbsp;
                     <Typography
                         variant='caption'
                         sx={{ color: '#4ADE80', letterSpacing: 3 }}
                     >
-                        Available for new oppotunities
+                        Available for new oppotunities.
                     </Typography>
                 </StyledStatus>
             <Typography 
