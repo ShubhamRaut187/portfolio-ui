@@ -1,16 +1,22 @@
-import React,{useEffect, useRef} from 'react'
-import styled from 'styled-components';
-import { Typography, Button } from '@mui/material'; 
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import ImageContainer from '../../components/ImageContainer';
-import { useTypewriter } from 'react-simple-typewriter';
+// #region Imports
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React,{useEffect, useRef} from 'react';
+import { useTypewriter } from 'react-simple-typewriter';
+import styled from 'styled-components';
+import { Typography, Button } from '@mui/material';
+
+// MUI Icons
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import ImageContainer from '../../components/ImageContainer';
+// endregion
+
 gsap.registerPlugin(ScrollTrigger);
 
+// #region Styled Components
 const StyledPageWrapper = styled.div`
+     margin: 80px auto 150px auto;
     width: 85%;
-    margin: 80px auto 150px auto;
     @media screen and (min-width:768px) and (max-width:1024px){
        width: 90%;
     }
@@ -21,14 +27,15 @@ const StyledPageWrapper = styled.div`
 `;
 
 const StyledInformationWrapper = styled.div`
-    width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: space-around;
-    height: 400px;
-    border-radius: 8px;
     background: linear-gradient(to right, #d9d9d91f, #7373731f) !important;
+    border-radius: 8px;
+    display: flex;
+    height: 400px;
+    justify-content: space-around;
     margin: 20px auto;
+    width: 100%;
+    
     @media screen and (min-width:768px) and (max-width:1024px){
        height: 400px;
     }
@@ -40,19 +47,19 @@ const StyledInformationWrapper = styled.div`
 `;
 
 const StyledImagesContainer = styled.div`
-    width: 40%;
-    height: 300px;
     border-radius: 20px;
+    height: 300px;
+    width: 40%;
     @media screen and (min-width: 320px) and (max-width: 767px) {
-        width: 90%;
         height: 30%;
+        width: 90%;
     }
 `;
 
 const StyledInfoContainer = styled.div`
-    width: 50%;
-    height: 300px;
     border-radius: 20px;
+    height: 300px;
+    width: 50%;
     @media screen and (min-width:768px) and (max-width:1024px){
        overflow-y: auto;
        scrollbar-width: none;
@@ -60,23 +67,26 @@ const StyledInfoContainer = styled.div`
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
         flex-direction: column;
-        width: 90%;
         height: 50% !important;
+        width: 90%; 
     }
 `;
 
 const StyledButton = styled(Button)`
-    text-transform: none !important;
-    border-color: #E51C4A !important;
     background-color: #E51C4A !important;
+    border-color: #E51C4A !important;
+    box-shadow: none !important;
     color: #FFFFFF;
     font-family: "Kumbh Sans", serif !important;
-    margin-top: 20px !important;
-    box-shadow: none !important;
+    margin-top: 20px !important; 
+    text-transform: none !important;
 `;
+// endregion
 
+// #region Component
 const About: React.FC = () => {
     const ref = useRef<HTMLDivElement | null>(null);
+    // Typewritter effect
     const [typeEffect] = useTypewriter({
         words:['Engineer...', 'Explorer...', 'Traveller...', 'Foodie...'],
         loop: true,
@@ -87,22 +97,22 @@ const About: React.FC = () => {
 
     useEffect(() => {
         if (ref.current) {
-          gsap.fromTo(
-            ref.current,
-            { opacity: 0, x: -100 },
-            {
-              opacity: 1,
-              x: 0,
-              duration: 1,
-              scrollTrigger: {
-                trigger: ref.current,
-                start: "top 80%",
-                end: "top 20%",
-                scrub: true,
-                toggleActions: "play reverse play reverse",
-              },
-            }
-          );
+             gsap.fromTo(
+                ref.current,
+                { opacity: 0, x: -100 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: ref.current,
+                        start: "top 80%",
+                        end: "top 20%",
+                        scrub: true,
+                        toggleActions: "play reverse play reverse",
+                    },
+                }
+            );
         }
     }, []);
 
@@ -137,5 +147,5 @@ const About: React.FC = () => {
     </StyledPageWrapper>
   )
 }
-
+// endregion
 export default About;
