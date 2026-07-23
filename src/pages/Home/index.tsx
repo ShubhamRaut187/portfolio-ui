@@ -8,6 +8,7 @@ import { Typography } from '@mui/material';
 
 // MUI icons
 import CircleIcon from '@mui/icons-material/Circle';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { ArrowRightAlt } from '@mui/icons-material';
@@ -22,18 +23,18 @@ gsap.registerPlugin(ScrollTrigger);
 const StyledPageWrapper = styled.div`
     align-items: center;
     display: flex;
-    height: 600px;
+    /* height: 600px; */
     justify-content: space-between;
     margin: 40px auto;
     width: 85%;
 
     @media screen and (min-width:768px) and (max-width:1024px){
-        height: 500px;
+        /* height: 500px; */
         width: 90%;
     }
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
-        height: 500px;
+        /* height: 500px; */
         flex-direction: column;
         width: 90%;
     }
@@ -55,7 +56,7 @@ const StyledHeroDescriptionWrapper = styled.div`
         width: 100%;
 
         & > .profile-title-home {
-            font-size: 32px;
+            font-size: 40px;
         }
 
         & > .profile-roles-home {
@@ -93,12 +94,12 @@ const StyledStatus = styled.div`
     align-items: center;
     background-color: #192824;
     border: 1px solid #244E37;
-    border-radius: 9999px;
+    border-radius: 4px;
     display: flex;
     height: 20px;
     justify-content: center;
     margin-bottom: 40px;
-    padding: 8px 36px;
+    padding: 16px 36px;
 `;
 
 const StyledSocialMediaIconsWrapper = styled.div`
@@ -187,6 +188,7 @@ const Home: React.FC = () => {
                 variant='h2'
                 component={'div'}
                 sx={{ color: '#FFFFFF', fontWeight: 700, letterSpacing: '-0.01em', lineHeight: '40px' }}
+                className="profile-title-home"
             >
                 Hello there,
             </Typography>
@@ -218,19 +220,20 @@ const Home: React.FC = () => {
                 <LinkedInIcon sx={{ color: '#FFFFFF', width: '40px', height: '40px'}}/>
                 <GitHubIcon sx={{ color: '#FFFFFF', width: '35px', height: '35px'}}/>
             </StyledSocialMediaIconsWrapper>
-            <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '10px' }}>
+            <div style={{ marginTop: '20px', marginBottom: '20px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '10px' }}>
                 <AppButton
                     variant='solid'
-                    sx={{ height: 50 }}
+                    sx={{ height: 50, color: '#003919' }}
                 >
-                    View Projects
+                    View Projects&nbsp;&nbsp;
                     <ArrowRightAlt />
                 </AppButton>
                 <AppButton
                     variant='outline'
                     sx={{ height: 50 }}
                 >
-                    Get in touch
+                    Get in touch &nbsp;&nbsp;
+                    <EmailOutlinedIcon />
                 </AppButton>
             </div>
             </StyledHeroDescriptionWrapper>

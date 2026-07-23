@@ -12,9 +12,7 @@ const StyledMenu = styled(Menu)`
     width: 100%;
     top: 80px !important;
     left: 16px !important;
-    /* background: linear-gradient(to right, #d9d9d91f, #7373731f) !important; */
-    background-color: rgba(21, 47, 68, 0.8) !important;
-    /* background-color: #121417; */
+    background-color: transparent !important;
     backdrop-filter: blur(10px) !important;
     box-shadow: none !important;
     border-radius: 8px !important;

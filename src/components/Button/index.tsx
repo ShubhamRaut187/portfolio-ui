@@ -49,7 +49,7 @@ const AppButton = ({
             disableElevation
             sx={{
                 textTransform: "none",
-                borderRadius: 2,
+                borderRadius: '4px',
                 fontWeight: 600,
                 fontFamily: "'Inter' serif",
                 px: 2.5,
